@@ -29,10 +29,22 @@ class EntityDescription
     private $name;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Category", inversedBy="bestEntities")
-     * @ORM\JoinColumn(name="type_id", referencedColumnName="id")
+     * @var string
+     *
+     * @ORM\Column(name="link", type="string", length=255)
      */
-    private $type;
+    private $link;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Category", inversedBy="bestEntities")
+     * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
+     */
+    private $category;
+
+    public function __construct($category)
+    {
+        $this->category = $category;
+    }
 
     /**
      * Get id
@@ -59,6 +71,30 @@ class EntityDescription
     }
 
     /**
+     * Get link
+     *
+     * @return string
+     */
+    public function getLink()
+    {
+        return $this->link;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $link
+     *
+     * @return EntityDescription
+     */
+    public function setLink($link)
+    {
+        $this->link = $link;
+
+        return $this;
+    }
+
+    /**
      * Get name
      *
      * @return string
@@ -69,13 +105,14 @@ class EntityDescription
     }
 
     /**
-     * Get type
+     * Get category
      *
      * @return int
      */
-    public function getType()
+    public function getCategory()
     {
-        return $this->type;
+        return $this->category;
     }
+
 }
 

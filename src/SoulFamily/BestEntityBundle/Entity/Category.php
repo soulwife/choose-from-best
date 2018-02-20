@@ -12,6 +12,11 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Category
 {
+
+    const BOOKS = 1;
+    const FILMS = 2;
+    const PLACES = 3;
+
     /**
      * @var int
      *
@@ -24,12 +29,12 @@ class Category
     /**
      * @var string
      *
-     * @ORM\Column(name="type", type="string", length=50, unique=true)
+     * @ORM\Column(name="name", type="string", length=50, unique=true)
      */
-    private $type;
+    private $name;
 
     /**
-     * @ORM\OneToMany(targetEntity="EntityDescription", mappedBy="type")
+     * @ORM\OneToMany(targetEntity="EntityDescription", mappedBy="category")
      */
     private $bestEntities;
 
@@ -52,27 +57,27 @@ class Category
     }
 
     /**
-     * Set type
+     * Set name
      *
-     * @param string $type
+     * @param string $name
      *
      * @return Category
      */
-    public function setType($type)
+    public function setName($name)
     {
-        $this->type = $type;
+        $this->name = $name;
 
         return $this;
     }
 
     /**
-     * Get type
+     * Get name
      *
      * @return string
      */
-    public function getType()
+    public function getName()
     {
-        return $this->type;
+        return $this->name;
     }
 }
 
