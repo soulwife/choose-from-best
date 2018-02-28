@@ -3,6 +3,7 @@
 namespace SoulFamily\BestEntityBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection as ArrayCollection;
 
 /**
  * Category
@@ -78,6 +79,16 @@ class Category
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * Get best entities
+     *
+     * @return ArrayCollection
+     */
+    public function getBestEntities()
+    {
+        return $this->bestEntities;
     }
 }
 

@@ -4,6 +4,7 @@ namespace SoulFamily\BestEntityBundle\Entity;
 
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection as ArrayCollection;
 
 /**
  * @ORM\Entity
@@ -32,5 +33,28 @@ class User extends BaseUser
     {
         parent::__construct();
         $this->bestEntities = new ArrayCollection();
+    }
+
+    /**
+     * Get best entities
+     *
+     * @return ArrayCollection
+     */
+    public function getBestEntities()
+    {
+        return $this->bestEntities;
+    }
+
+    /**
+     * Set best entities
+     *
+     * @param $bestEntities
+     * @return User
+     */
+    public function setBestEntities($bestEntities)
+    {
+        $this->bestEntities = $bestEntities;
+
+        return $this;
     }
 }

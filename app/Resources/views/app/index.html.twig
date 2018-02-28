@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+    <div id="wrapper">
+        <div class="container">
+            <div id="welcome">
+                <h1><span>Choose from the best!</span> </h1>
+            </div>
+
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    {%  for i in 1..bestRandomChoices|length %}
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="{% if loop.first %} active {% endif %}"></li>
+                    {%  endfor %}
+                </ol>
+                <div class="carousel-inner">
+                    {% for randEntity in bestRandomChoices %}
+                        <div class="carousel-item {% if loop.first %} active {% endif %}">
+                            <img  src="{{ asset('images/top' ~ randEntity.category.name|title ~'.png') }}" alt="{{ randEntity.category.name }}">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>{{ randEntity.name }}</h5>
+                                <p>{{ randEntity.link }}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}
+
+

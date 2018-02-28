@@ -15,11 +15,11 @@ class AdminController extends Controller
     /**
      * Lists all entities.
      *
-     * @Route("/", name="admin_index")
+     * @Route("/admin", name="adminIndex")
      * @Method("GET")
      */
     public function indexAction()
     {
-
+        return $this->render('admin/index.html.twig');
     }
 }
