@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+    <div id="wrapper">
+        <div class="container">
+            <div class="row mt-2">
+                <div class="col-lg">
+                    <ul class="list-group entities-list">
+                        {% for entity in category.bestEntities %}
+                            <li class="list-group-item" data-id="{{ entity.id }}">
+                                <a href="{{ entity.link }}">{{ entity.name }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}
+
+

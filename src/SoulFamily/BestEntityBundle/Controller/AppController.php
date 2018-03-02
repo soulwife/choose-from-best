@@ -31,10 +31,9 @@ class AppController extends Controller
         array_walk($categories, function($category) use ($em, &$bestRandomChoices, $userEntities) {
             $categoryEntities = $em->getRepository(EntityDescription::class)->findBy(['category' => $category]);
             if ($categoryEntities) {
+                dump($categoryEntities);
                 $categoryEntitiesWithoutUserEntities = array_diff($categoryEntities, $userEntities);
                 $bestRandomChoices[$category->getId()] = $categoryEntitiesWithoutUserEntities[array_rand($categoryEntitiesWithoutUserEntities)];
-            } else {
-                $bestRandomChoices[$category->getId()]  = [];
             }
         });
 

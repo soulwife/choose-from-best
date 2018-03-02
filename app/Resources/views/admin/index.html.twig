@@ -12,12 +12,17 @@
             {% for category in categories %}
 
                 <div class="card" style="width: 20rem;">
-                    <img class="card-img-top" src="{{ asset('images/categories/top' ~ category.name|title ~'.png') }}" alt="{{ category.name }}" />
+                    <a href="{{ path('admin_category_show', {id: category.id}) }}">
+                        <img class="card-img-top" src="{{ asset('images/categories/top' ~ category.name|title ~'.png') }}" alt="{{ category.name }}" />
+                    </a>
                     <div class="card-body">
+                        <div class="btn-group float-right" role="group">
+                            <a class="btn card-link" href="{{ path('admin_category_edit', {id: category.id}) }}"><i class="fa fa-edit fa-fw"></i>&nbsp;</a>
+                            {{ include('admin/_delete_form.html.twig', {category: category}, with_context = false) }}
+                        </div>
                         <h5 class="card-title">{{ category.name }}</h5>
-                        <p class="card-text">{{ category.url }}</p>
-                        <a class="card-link" href="{{ path('admin_category_edit', {id: category.id}) }}"><i class="fa fa-edit fa-fw"></i>&nbsp;</a>
-                        {{ include('admin/_delete_form.html.twig', {category: category}, with_context = false) }}
+                        <p class="card-text">URL: {{ category.url }}</p>
+
                     </div>
                 </div>
             {% endfor %}

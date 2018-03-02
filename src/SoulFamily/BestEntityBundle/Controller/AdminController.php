@@ -123,5 +123,17 @@ class AdminController extends Controller
         ]);
     }
 
+    /**
+     * Finds and displays a Category entity.
+     *
+     * @Route("/{id}", requirements={"id": "\d+"}, name="admin_category_show")
+     * @Method("GET")
+     */
+    public function showAction(Category $category)
+    {
+        return $this->render('admin/category_show.html.twig', [
+            'category' => $category
+        ]);
+    }
 
 }
