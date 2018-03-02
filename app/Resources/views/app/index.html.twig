@@ -16,7 +16,7 @@
                 <div class="carousel-inner">
                     {% for randEntity in bestRandomChoices %}
                         <div class="carousel-item {% if loop.first %} active {% endif %}">
-                            <a href="{{ path('category_entities', {name: randEntity.category.name}) }}"> <img  src="{{ asset('images/top' ~ randEntity.category.name|title ~'.png') }}" alt="{{ randEntity.category.name }}"></a>
+                            <a href="{{ path('category_entities', {name: randEntity.category.name}) }}"> <img  src="{{ asset('images/categories/top' ~ randEntity.category.name|title ~'.png') }}" alt="{{ randEntity.category.name }}" /></a>
                             <div class="carousel-caption d-none d-md-block">
                                 <h5>{{ randEntity.name }}</h5>
                                 <p>{{ randEntity.link }}</p>

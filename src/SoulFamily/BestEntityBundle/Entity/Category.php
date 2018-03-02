@@ -35,6 +35,21 @@ class Category
     private $name;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="url", type="string", length=250)
+     */
+    private $url;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="img_url", type="string", length=250)
+     */
+    private $imgUrl;
+
+
+    /**
      * @ORM\OneToMany(targetEntity="EntityDescription", mappedBy="category")
      */
     private $bestEntities;
@@ -79,6 +94,54 @@ class Category
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * Set url
+     *
+     * @param string $url
+     *
+     * @return Category
+     */
+    public function setUrl($url)
+    {
+        $this->url = $url;
+
+        return $this;
+    }
+
+    /**
+     * Get url
+     *
+     * @return string
+     */
+    public function getUrl()
+    {
+        return $this->url;
+    }
+
+    /**
+     * Set image url
+     *
+     * @param string $imgUrl
+     *
+     * @return Category
+     */
+    public function setImgUrl($imgUrl)
+    {
+        $this->imgUrl = $imgUrl;
+
+        return $this;
+    }
+
+    /**
+     * Get image url
+     *
+     * @return string
+     */
+    public function getImgUrl()
+    {
+        return $this->imgUrl;
     }
 
     /**

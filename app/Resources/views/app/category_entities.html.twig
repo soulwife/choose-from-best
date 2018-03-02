@@ -6,20 +6,19 @@
             <div id="welcome">
                 <h1><span>Choose from the best!</span> </h1>
             </div>
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
             <div class="row">
                 <div class="col-lg">
-                Mark {{ category.name }}, that you already know (was at it, read it, watched it, etc.) and choose any from what's left.
-
+                    Mark {{ category.name }}, that you already know (was at it, read it, watched it, etc.) and choose any from what's left.
                 </div>
             </div>
-            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                <div class="row justify-content-end mt-2">
-                    <div class="col-4">
-                        <button type="button" class="read-list-btn btn btn-success" data-url="{{ path('save_user_entities') }}">Mark as read</button>
 
-                        <button type="button" class="edit-list-btn btn btn-info float-right">Edit mode</button>
-                    </div>
+            <div class="row justify-content-end mt-2">
+                <div class="col-4">
+                    <button type="button" class="read-list-btn btn btn-success" data-url="{{ path('save_user_entities') }}">Mark as read</button>
+                    <button type="button" class="edit-list-btn btn btn-info float-right">Edit mode</button>
                 </div>
+            </div>
             {%  endif %}
             <div class="row mt-2">
                 <div class="col-lg">

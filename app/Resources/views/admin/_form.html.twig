@@ -1,0 +1,17 @@
+{#
+    By default, forms enable client-side validation. This means that you can't
+    test the server-side validation errors from the browser. To temporarily
+    disable this validation, add the 'novalidate' attribute:
+
+    {{ form_start(form, {attr: {novalidate: 'novalidate'}}) }}
+#}
+
+{{ form_start(form, {attr: attr|default({})}) }}
+    {{ form_widget(form) }}
+
+    {% if include_back_to_home_link|default(false) %}
+        <a href="{{ path('admin_index') }}" class="btn btn-link">
+            <i class="fa fa-list-alt" aria-hidden="true"></i> {{ 'Back to panel'|trans }}
+        </a>
+    {% endif %}
+{{ form_end(form) }}

@@ -22,11 +22,10 @@ class AppController extends Controller
         $em = $this->getDoctrine()->getManager();
         $user = $this->getUser();
 
-
         $categories = $em->getRepository(Category::class)->findAll();
         $bestRandomChoices = $userEntities = [];
         if ($user) {
-            $userEntities = $user->getBestEntities();
+            $userEntities = $user->getBestEntities()->toArray();
         }
 
         array_walk($categories, function($category) use ($em, &$bestRandomChoices, $userEntities) {

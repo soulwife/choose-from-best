@@ -1,0 +1,15 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block body_id 'admin_category_edit' %}
+
+{% block main %}
+    <h1>{{ category.name }}</h1>
+
+    {{ include('admin/_form.html.twig', {
+        form: form,
+        button_label: 'Save',
+        include_back_to_home_link: true,
+    }, with_context = false) }}
+{% endblock %}
+
+
