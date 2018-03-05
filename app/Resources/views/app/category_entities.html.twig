@@ -26,7 +26,7 @@
                         {% for entity in category.bestEntities %}
                             <li class="list-group-item {% if (entity.id in userEntitiesIds) %} disabled {% endif %}" data-id="{{ entity.id }}">
                                 <input class="entities-list-checkbox" type="checkbox" {% if (entity.id in userEntitiesIds) %} checked {% endif %} value="{{ entity.id }}" />
-                                <a href="{{ entity.link }}">{{ entity.name }}</a>
+                                <a href="{{ entity.link }}" target="_blank">{{ entity.name }}</a>
                             </li>
                         {% endfor %}
                     </ul>

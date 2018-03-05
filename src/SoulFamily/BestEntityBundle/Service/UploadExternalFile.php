@@ -16,8 +16,7 @@ class UploadExternalFile
         $this->imagesCategoriesDirectory = $imagesCategoriesDirectory;
     }
 
-    public function copyExternalFile($url, $name)
-    {
+    public function copyExternalFile($url, $name) {
         $testFile = $this->imagesCategoriesDirectory . '/test.png';
         copy($url, $testFile);
         $imageInfo = getimagesize($testFile);
@@ -25,5 +24,9 @@ class UploadExternalFile
             copy($testFile, $this->imagesCategoriesDirectory . '/top' . ucfirst($name) . '.png');
             unlink($testFile);
         }
+    }
+
+    public function getFilePath($name) {
+        return $this->imagesCategoriesDirectory . '/top' . ucfirst($name) . '.png';
     }
 }

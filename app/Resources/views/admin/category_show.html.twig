@@ -3,12 +3,18 @@
 {% block main %}
     <div id="wrapper">
         <div class="container">
+            <div class="row float-right">
+                {{ form_start(form) }}
+                {{ form_widget(form) }}
+                {{ form_end(form) }}
+            </div>
+
             <div class="row mt-2">
                 <div class="col-lg">
                     <ul class="list-group entities-list">
                         {% for entity in category.bestEntities %}
                             <li class="list-group-item" data-id="{{ entity.id }}">
-                                <a href="{{ entity.link }}">{{ entity.name }}</a>
+                                <a href="{{ entity.link }}" target="_blank">{{ entity.name }}</a>
                             </li>
                         {% endfor %}
                     </ul>

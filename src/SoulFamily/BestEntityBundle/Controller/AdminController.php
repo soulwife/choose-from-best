@@ -48,8 +48,6 @@ class AdminController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-
-            //TODO: deal with changing name
             //delete old category image
             $this->get('_soulfamily.upload_external_file')->copyExternalFile($category->getImgUrl(), $category->getName());
 
@@ -81,6 +79,9 @@ class AdminController extends Controller
         }
 
         $em = $this->getDoctrine()->getManager();
+
+        unlink( $this->get('_soulfamily.upload_external_file')->getFilePath($category->getName()));
+
         $em->remove($category);
         $em->flush();
 
@@ -94,6 +95,7 @@ class AdminController extends Controller
      *
      * @Route("admin/category/new", name="admin_category_new")
      * @Method({"GET", "POST"})
+     * @Security("is_granted('ROLE_ADMIN')")
      *
      */
     public function newAction(Request $request)
@@ -126,14 +128,59 @@ class AdminController extends Controller
     /**
      * Finds and displays a Category entity.
      *
-     * @Route("/{id}", requirements={"id": "\d+"}, name="admin_category_show")
-     * @Method("GET")
+     * @Route("/category/{id}", requirements={"id": "\d+"}, name="admin_category_show")
+     * @Security("is_granted('ROLE_ADMIN')")
+     * @Method({"GET", "POST"})
      */
-    public function showAction(Category $category)
+    public function showAction(Request $request, Category $category)
     {
+        $form = $this->createFormBuilder($category)
+            ->add('Crawl', SubmitType::class, [
+            'attr' => ['class' => 'btn-info']
+            ])
+            ->getForm();
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted()) {
+            $this->crawlAction($category);
+        }
+
         return $this->render('admin/category_show.html.twig', [
-            'category' => $category
+            'category' => $category,
+            'form' => $form->createView(),
         ]);
     }
+
+    /**
+     * @param Category $category
+     */
+    public function crawlAction(Category $category)
+    {
+        $crawler = $this->get('_soulfamily.crawler');
+        $books = $crawler->crawl($category->getUrl(), $category->getHtmlCrawlPath());
+
+        if (empty($books)) {
+            $this->addFlash('error', 'There is something wrong. Items hadn not been crawled');
+        } else {
+
+            $em = $this->getDoctrine()->getManager();
+
+            $em->getRepository(EntityDescription::class)->deleteByCategory($category);
+
+            foreach ($books as $crawling) {
+                $book = new EntityDescription($category);
+                $book->setName($crawling['name']);
+                $book->setLink($crawling['link']);
+
+                $em->persist($book);
+            }
+
+            $em->flush();
+            $this->addFlash('success', ucfirst($category->getName()) . ' have been crawled successfully');
+        }
+    }
+
+
 
 }

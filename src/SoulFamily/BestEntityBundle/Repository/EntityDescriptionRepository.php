@@ -10,4 +10,18 @@ namespace SoulFamily\BestEntityBundle\Repository;
  */
 class EntityDescriptionRepository extends \Doctrine\ORM\EntityRepository
 {
+
+    public function deleteByCategory($category)
+    {
+        $em = $this->getEntityManager();
+
+        $query = $em->createQuery(
+            'DELETE FROM SoulFamilyBestEntityBundle:EntityDescription e ' .
+            'WHERE e.category = :CATEGORY_ID '
+        );
+
+        $query->setParameter('CATEGORY_ID', $category->getId());
+        return $query->execute();
+
+    }
 }

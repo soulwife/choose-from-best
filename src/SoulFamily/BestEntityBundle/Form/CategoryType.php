@@ -41,6 +41,9 @@ class CategoryType extends AbstractType
             ->add('imgUrl', null, [
                 'label' => 'Image url',
             ])
+            ->add('htmlCrawlPath', null, [
+                'label' => 'Html Crawl Path (should ends with <a> tag)',
+            ])
             ->add('Submit', SubmitType::class, [
                'attr' => ['class' => 'btn-success']
             ])

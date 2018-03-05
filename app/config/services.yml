@@ -35,3 +35,6 @@ services:
         $imagesCategoriesDirectory: '%kernel.project_dir%/web/images/categories'
         public: true
 
+    _soulfamily.crawler:
+        class: SoulFamily\BestEntityBundle\Service\CrawlCategories
+        public: true

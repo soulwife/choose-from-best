@@ -4,6 +4,7 @@ namespace SoulFamily\BestEntityBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection as ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Category
@@ -38,6 +39,7 @@ class Category
      * @var string
      *
      * @ORM\Column(name="url", type="string", length=250)
+     * @Assert\NotBlank(message="The url cannot be empty!")
      */
     private $url;
 
@@ -45,8 +47,17 @@ class Category
      * @var string
      *
      * @ORM\Column(name="img_url", type="string", length=250)
+     * @Assert\NotBlank(message="The img url cannot be empty!")
      */
     private $imgUrl;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="html_crawl_path", type="string", length=250)
+     * @Assert\NotBlank(message="The html crawl path cannot be empty!")
+     */
+    private $htmlCrawlPath;
 
 
     /**
@@ -142,6 +153,31 @@ class Category
     public function getImgUrl()
     {
         return $this->imgUrl;
+    }
+
+
+    /**
+     * Set htmlCrawlPath
+     *
+     * @param string $htmlCrawlPath
+     *
+     * @return Category
+     */
+    public function setHtmlCrawlPath($htmlCrawlPath)
+    {
+        $this->htmlCrawlPath = $htmlCrawlPath;
+
+        return $this;
+    }
+
+    /**
+     * Get htmlCrawlPath
+     *
+     * @return string
+     */
+    public function getHtmlCrawlPath()
+    {
+        return $this->htmlCrawlPath;
     }
 
     /**
