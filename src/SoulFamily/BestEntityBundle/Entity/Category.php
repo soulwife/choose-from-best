@@ -14,11 +14,6 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Category
 {
-
-    const BOOKS = 1;
-    const FILMS = 2;
-    const PLACES = 3;
-
     /**
      * @var int
      *

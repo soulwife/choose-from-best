@@ -24,7 +24,7 @@ class User extends BaseUser
      * @ORM\ManyToMany(targetEntity="EntityDescription")
      * @ORM\JoinTable(name="users_entities",
      *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="entity_id", referencedColumnName="id", unique=true)}
+     *      inverseJoinColumns={@ORM\JoinColumn(name="entity_id", referencedColumnName="id")}
      *      )
      */
     private $bestEntities;
