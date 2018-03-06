@@ -5,9 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>{% block title %}Choose from the best{% endblock %}</title>
     {% block stylesheets %}
-        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
-        <link rel="stylesheet" href={{ asset('css/fontawesome-all.css') }}>
-        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <link rel="stylesheet" href="{{ asset('build/css/app.css') }}">
     {% endblock %}
 
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
@@ -97,10 +95,10 @@
                 <div id="footer-resources" class="col-md-6">
                     <p>
                         <a href="https://www.facebook.com/soul.constellation" title="Soulwife Facebook">
-                            <i class="fa fa-facebook" aria-hidden="true"></i>
+                            <i class="fab fa-facebook" aria-hidden="true"></i>
                         </a>
                         <a href="https://soulwife.github.io/" title="Soulwife Blog">
-                            <i class="fa fa-rss" aria-hidden="true"></i>
+                            <i class="fa fa-address-card" aria-hidden="true"></i>
                         </a>
                     </p>
                 </div>
@@ -110,10 +108,9 @@
 {% endblock %}
 
 {% block javascripts %}
-    <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('build/manifest.js') }}"></script>
+    <script src="{{ asset('build/vendor.js') }}"></script>
+    <script src="{{ asset('build/js/app.js') }}"></script>
 {% endblock %}
 
 </body>

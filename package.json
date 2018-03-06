@@ -1,0 +1,47 @@
+{
+  "name": "choose-from-best",
+  "version": "1.0.0",
+  "description": "Choose book/cinema/etc. from the best in their category",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "ajv": "^6.2.1",
+    "bootstrap": "^4.0.0",
+    "bootstrap-sass": "^3.3.7",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.3.1",
+    "node-sass": "^4.7.2",
+    "popper.js": "^1.12.9",
+    "sass-loader": "^6.0.7",
+    "url-loader": "^1.0.1"
+  },
+  "devDependencies": {
+    "@symfony/webpack-encore": "^0.19.0",
+    "node-sass": "^4.7.2",
+    "resolve-url-loader": "^2.3.0",
+    "sass-loader": "^6.0.7"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "./node_modules/.bin/encore dev --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/soulwife/choose-from-best.git"
+  },
+  "keywords": [
+    "choose your favorite",
+    "top books",
+    "top cinema;",
+    "top travel places",
+    "top games"
+  ],
+  "author": "Lysenko A. aka soulwife",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/soulwife/choose-from-best/issues"
+  },
+  "homepage": "https://github.com/soulwife/choose-from-best#readme"
+}

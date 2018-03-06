@@ -1,3 +1,6 @@
+window.$ = require('jquery');
+window.Popper = require('popper.js');
+require('bootstrap');
 
 $(document).ready(function(){
     $(".edit-list-btn").click(function(){
