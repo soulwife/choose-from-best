@@ -29,6 +29,12 @@ class AppKernel extends Kernel
                 $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
                 $bundles[] = new Symfony\Bundle\WebServerBundle\WebServerBundle();
             }
+
+            if ('test' === $this->getEnvironment()) {
+                // this bundle makes it easier to work with databases in PHPUnit
+                // tests, so it's only loaded for the 'test' environment
+                $bundles[] = new DAMA\DoctrineTestBundle\DAMADoctrineTestBundle();
+            }
         }
 
         return $bundles;

@@ -17,6 +17,9 @@
             <directory>tests</directory>
         </testsuite>
     </testsuites>
+    <listeners>
+        <listener class="\DAMA\DoctrineTestBundle\PHPUnit\PHPUnitListener" />
+    </listeners>
 
     <filter>
         <whitelist>

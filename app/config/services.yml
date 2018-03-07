@@ -32,7 +32,6 @@ services:
     _soulfamily.upload_external_file:
         class: SoulFamily\BestEntityBundle\Service\UploadExternalFile
         arguments: ['%kernel.project_dir%/web/images/categories']
-        $imagesCategoriesDirectory: '%kernel.project_dir%/web/images/categories'
         public: true
 
     _soulfamily.crawler:

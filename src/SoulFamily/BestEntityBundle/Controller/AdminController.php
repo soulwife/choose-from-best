@@ -80,7 +80,7 @@ class AdminController extends Controller
 
         $em = $this->getDoctrine()->getManager();
 
-        unlink( $this->get('_soulfamily.upload_external_file')->getFilePath($category->getName()));
+        unlink($this->get('_soulfamily.upload_external_file')->getFilePath($category->getName()));
 
         $em->remove($category);
         $em->flush();
@@ -128,7 +128,7 @@ class AdminController extends Controller
     /**
      * Finds and displays a Category entity.
      *
-     * @Route("/category/{id}", requirements={"id": "\d+"}, name="admin_category_show")
+     * @Route("admin/category/{id}", requirements={"id": "\d+"}, name="admin_category_show")
      * @Security("is_granted('ROLE_ADMIN')")
      * @Method({"GET", "POST"})
      */
