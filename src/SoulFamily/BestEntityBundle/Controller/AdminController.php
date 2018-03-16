@@ -65,7 +65,7 @@ class AdminController extends Controller
     }
 
     /**
-     * Deletes a Post entity.
+     * Deletes a Category entity.
      *
      * @Route("admin/category/{id}/delete", name="admin_category_delete")
      * @Method("POST")
@@ -153,6 +153,8 @@ class AdminController extends Controller
     }
 
     /**
+     * Crawl entities in specific category
+     *
      * @param Category $category
      */
     public function crawlAction(Category $category)

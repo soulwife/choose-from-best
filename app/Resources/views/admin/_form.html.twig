@@ -10,7 +10,7 @@
     {{ form_widget(form) }}
 
     {% if include_back_to_home_link|default(false) %}
-        <a href="{{ path('admin_index') }}" class="btn btn-link">
+        <a href="{{ path('admin_index') }}" class="btn btn-primary">
             <i class="fa fa-list-alt" aria-hidden="true"></i> {{ 'Back to panel'|trans }}
         </a>
     {% endif %}

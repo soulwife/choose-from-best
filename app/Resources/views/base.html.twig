@@ -59,9 +59,16 @@
                             <a class="btn btn-default navbar-btn" href="{{ path('fos_user_registration_register') }}">{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</a>
                         </li>
                         {% endif %}
-
                 </ul>
             </div><!-- /.navbar-collapse -->
+            <div class="nav justify-content-end">
+                <a href="https://www.facebook.com/soul.constellation" title="Soulwife Facebook">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://soulwife.github.io/" title="Soulwife Blog">
+                    <i class="fa fa-address-card"></i>
+                </a>
+            </div>
         </nav>
     </header>
 {% endblock %}
@@ -83,29 +90,6 @@
         </div>
     {% endblock %}
 </div>
-
-{% block footer %}
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div id="footer-copyright" class="col-md-6">
-                    <p>&copy; {{ 'now'|date('Y') }} - The Soulwife Project</p>
-                    <p>MIT</p>
-                </div>
-                <div id="footer-resources" class="col-md-6">
-                    <p>
-                        <a href="https://www.facebook.com/soul.constellation" title="Soulwife Facebook">
-                            <i class="fab fa-facebook" aria-hidden="true"></i>
-                        </a>
-                        <a href="https://soulwife.github.io/" title="Soulwife Blog">
-                            <i class="fa fa-address-card" aria-hidden="true"></i>
-                        </a>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </footer>
-{% endblock %}
 
 {% block javascripts %}
     <script src="{{ asset('build/manifest.js') }}"></script>

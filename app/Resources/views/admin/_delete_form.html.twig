@@ -1,6 +1,6 @@
-<form class="card-link" action="{{ url('admin_category_delete', {id: category.id}) }}" method="post" data-confirmation="true" id="delete-form-{{ category.id }}">
+<form action="{{ url('admin_category_delete', {id: category.id}) }}" method="post" data-confirmation="true" id="delete-form-{{ category.id }}">
     <input type="hidden" name="token" value="{{ csrf_token('delete') }}" />
-    <button type="submit" class="btn btn-link">
+    <button type="submit" class="btn btn-link btn-sm">
         <i class="fa fa-trash fa-fw" aria-hidden="true"></i>
     </button>
 </form>

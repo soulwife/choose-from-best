@@ -8355,3 +8355,18 @@ a.text-dark:hover, a.text-dark:focus {
   margin: 0;
   overflow: visible;
   clip: auto; }
+
+a {
+  color: #666; }
+  a:hover {
+    color: #444; }
+
+.card-link {
+  text-align: center; }
+
+.card-image-new {
+  width: 75%;
+  margin-top: 20px; }
+
+.body-container {
+  padding: 20px 0; }
